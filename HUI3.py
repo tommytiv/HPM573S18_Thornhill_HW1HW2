@@ -1,7 +1,3 @@
-
-
-
-
 # HUI-3 scoring formula
 Coefficient = 1.371
 Constant = 0.371
