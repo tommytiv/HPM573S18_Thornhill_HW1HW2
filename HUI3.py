@@ -1,6 +1,6 @@
 # HUI-3 scoring formula
-Coefficient = 1.371
-Constant = 0.371
+coefficient = 1.371
+constant = 0.371
 dictCoefficients = {'Vision':           [1, 0.98, 0.89, 0.84, 0.75, 0.61],
                     'Hearing':          [1, 0.95, 0.89, 0.80, 0.74, 0.61],
                     'Speech':           [1, 0.94, 0.89, 0.81, 0.68],
@@ -48,16 +48,16 @@ def get_score(vision: object, hearing: object, speech: object, ambulation: objec
     if not (pain in [1,2,3,4,5]):
       raise ValueError("Pain level can only take 1, 2, 3, 4, or 5")
 
-    Response = 1
-    Response *= dictCoefficients['Vision'][vision-1]
-    Response *= dictCoefficients['Hearing'][hearing-1]
-    Response *= dictCoefficients['Speech'][speech-1]
-    Response *= dictCoefficients['Ambulation'][ambulation-1]
-    Response *= dictCoefficients['Dexterity'][dexterity-1]
-    Response *= dictCoefficients['Emotion'][emotion-1]
-    Response *= dictCoefficients['Cognition'][cognition-1]
-    Response *= dictCoefficients['Pain'][pain-1]
+    response_calc = 1
+    response_calc *= dictCoefficients['Vision'][vision-1]
+    response_calc *= dictCoefficients['Hearing'][hearing-1]
+    response_calc *= dictCoefficients['Speech'][speech-1]
+    response_calc *= dictCoefficients['Ambulation'][ambulation-1]
+    response_calc *= dictCoefficients['Dexterity'][dexterity-1]
+    response_calc *= dictCoefficients['Emotion'][emotion-1]
+    response_calc *= dictCoefficients['Cognition'][cognition-1]
+    response_calc *= dictCoefficients['Pain'][pain-1]
 
-    score = Coefficient * Response - Constant
+    score = coefficient * response_calc - constant
 
     return score
